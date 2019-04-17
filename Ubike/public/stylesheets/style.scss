@@ -15,6 +15,7 @@ a {
 .cols{
   color: white !important;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 20px !important;
 }
 
 .part1{
@@ -53,9 +54,9 @@ a {
 .top{
   color: white;
   display: flex;
-  flex-direction: row-reverse;
+  /*flex-direction: row-reverse;
   padding-right: 30px;
-  padding-top: 150px;
+  padding-top: 150px;*/
 }
 
 a.top>svg{
