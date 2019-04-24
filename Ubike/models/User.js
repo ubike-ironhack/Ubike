@@ -26,7 +26,7 @@ const userSchema = new Schema({
 
 userSchema.plugin(passportLocalMongoose, {
   usernameField: "email",
-  hashField: "password"
+  passwordField: "password"
 });
 
 const User = mongoose.model('User', userSchema);
