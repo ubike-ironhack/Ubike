@@ -1,20 +1,25 @@
 <div class="bg">
   <h2 class="title2">Login</h2>
 
-  <form class="login uk-margin" action="/auth/login" method="POST" id="form-container">
-    <label for="username">Username</label>
-    <input class="uk-input uk-form-width-medium uk-form-small" id="username" type="text" name="username" placeholder="JonSnow">
-
-    <br><br>
-
-    <label for="password uk-margin">Password</label>
-    <input class="uk-input uk-form-width-medium uk-form-small" id="password" type="password" name="password" placeholder="Your password">
-    <br>
+<form class="login uk-margin" action="/auth/login" method="POST" id="form-container">
+    Email:
+    <div class="uk-inline">
+      <span class="uk-form-icon" uk-icon="icon: mail"></span>
+      <input class="uk-input uk-form-width-medium uk-form-small" id="email" type="text" name="email" placeholder="JonSnow@got.com">
+    </div>
+  <br><br>
     {{#if message }}
       <div class="error-message">{{ message }}</div>
     {{/if}}
-
-    <br><br>
+    Password:
+  <div class="uk-inline">
+    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+    <input class="uk-input uk-form-width-medium uk-form-small" id="password" type="password" name="password" placeholder="Your password">
+  </div>
+  <br><br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
 
     <button class="buttn">Login</button>
       <div class="txt"> 
