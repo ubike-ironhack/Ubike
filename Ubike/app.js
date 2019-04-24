@@ -15,7 +15,7 @@ const flash      = require("connect-flash");
 
 
 mongoose
- .connect(process.env.DB, {useNewUrlParser: true})
+ .connect(process.env.DB, { useNewUrlParser: true })
  .then(x => {
    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
  })
@@ -80,6 +80,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+// const map = require('');
+// app.use('/auth/map', map);
 
 
 module.exports = app;
