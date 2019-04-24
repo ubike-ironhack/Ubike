@@ -6,12 +6,12 @@ const bikeSchema = new Schema ({
         type: String,
         default: "Point"
       },
-      coordinates: {
-        type: [Number]
-      }
+      coordinates:[Number]
     }
   },
   { timestamps: true }
 );
+
+bikeSchema.index({ location: "2dsphere" });
 
 module.exports = mongoose.model("Bike", bikeSchema);
