@@ -1,11 +1,15 @@
-// const express = require("express");
-// const router = express.Router();
-// const Bike = require("../models/Bike");
+const express = require("express");
+const router = express.Router();
+const Bike = require("../models/Bike");
 
-// router.get("/", (req, res) => {
-//   Bike.find().then(bike => {
-//     res.render("bike", { bike });
-//   });
+
+router.get("/", (req, res) => {
+  console.log('esta sera la visa del map');
+  res.render('map');
+});
+
+// router.get("/login", (req, res) => {
+  
 // });
 
 // router.get("/new", (req, res) => {
@@ -13,10 +17,8 @@
 // });
 
 // router.post("/new", (req, res) => {
-//   let { lng, lat, name, description } = req.body;
+//   let { lng, lat, } = req.body;
 //   let bicycle = {
-//     name,
-//     description,
 //     location: {
 //       type: "Point",
 //       coordinates: [lng, lat]
@@ -26,6 +28,7 @@
 //     res.redirect("/map");
 //   });
 // });
+
 
 // router.get("/:id/edit", (req, res) => {
 //   let { id } = req.params;
@@ -38,8 +41,6 @@
 //   let { id } = req.params;
 //   let { lng, lat, name, description } = req.body;
 //   let bicycle = {
-//     name,
-//     description,
 //     location: {
 //       type: "Point",
 //       coordinates: [lng, lat]
@@ -57,4 +58,4 @@
 //   });
 // });
 
-// module.exports = router;
+module.exports = router;
