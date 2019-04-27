@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const Bike = require("../models/Bike");
+const User = require("../models/User");
+const helpers = require("../helpers/function");
 
 
-router.get("/", (req, res) => {
-  console.log('esta sera la visa del map');
-  res.render('map');
+router.get("/", helpers.isAuth, (req, res) => {
+  console.log()
+  let auth =req.isAuthenticated()
+  const user = req.params
+  User.findById()
+  console.log('esta sera la visa del map',auth);
+  res.render('map',{auth:auth} ) 
 });
 
 // router.get("/login", (req, res) => {
