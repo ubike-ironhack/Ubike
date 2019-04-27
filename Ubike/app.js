@@ -15,15 +15,6 @@ const flash      = require("connect-flash");
 
 
 mongoose
-<<<<<<< HEAD
-  .connect(process.env.DB, {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
-=======
  .connect(process.env.DB, { useNewUrlParser: true })
  .then(x => {
    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
@@ -31,7 +22,6 @@ mongoose
  .catch(err => {
    console.error('Error connecting to mongo', err)
  });
->>>>>>> Daniel
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -91,8 +81,7 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// const map = require('');
-// app.use('/auth/map', map);
-
+const map = require('./routes/map');
+app.use('/map', map);
 
 module.exports = app;
