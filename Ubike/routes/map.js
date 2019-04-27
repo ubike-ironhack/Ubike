@@ -11,7 +11,7 @@ router.get("/", helpers.isAuth, (req, res) => {
   const user = req.params
   User.findById()
   console.log('esta sera la visa del map',auth);
-  res.render('map',{auth:auth} ) 
+  res.render('map/map',{auth:auth} ) 
 });
 
 // router.get("/login", (req, res) => {
