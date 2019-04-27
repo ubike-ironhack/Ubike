@@ -1,16 +1,4 @@
-{{!-- <h1>Restaurants</h1>
-
-<ul>
-  {{#each restaurants as |rest|}}
-  <li>
-    <a href="/restaurants/{{ rest._id }}">{{ rest.name }}</a>
-    <a href="/restaurants/{{ rest._id }}/edit">editar</a>
-    <a href="/restaurants/{{ rest._id }}/delete">borrar</a>
-  </li>
-  {{/each}}
-</ul>
-
-<div id="map" style="width: 100%; height: 400px;"></div>
+<div id="map" style="width: 100%; height: 100vh;"></div>
 <script>
   mapboxgl.accessToken =
     "pk.eyJ1IjoiY3J1c2VkbW9zcyIsImEiOiJjanUwYWJpcTIwMGlxNDRxbnVrbzRlZ2ZwIn0.JFaXPkdL0AJ7Vbtyc8lD4A";
@@ -44,7 +32,7 @@
     console.log("Usa chrome mijo");
   }
   let n,mark,pop;
-  {{#each restaurants }}
+  {{#each bike }}
    n = "{{this.name}}"
    pop = new mapboxgl.Popup().setText(n);
    mark = new mapboxgl.Marker()
@@ -53,4 +41,4 @@
     .addTo(map);
   {{/each}}
       map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
-</script> --}}
+</script>

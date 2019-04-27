@@ -13,7 +13,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/map",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -21,7 +21,7 @@ router.post("/login", passport.authenticate("local", {
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
-});
+}); 
 
 router.post("/signup", (req, res, next) => {
   const username = req.body.name;
