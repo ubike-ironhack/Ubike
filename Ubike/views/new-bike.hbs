@@ -1,0 +1,27 @@
+<div class="bg"> 
+  <h2 class="title2">Create Bike</h2>
+
+  <form class="login uk-margin" action="/auth/signup" method="POST" id="form-container">
+  Name:
+    <div class="uk-inline">
+      <span class="uk-form-icon" uk-icon="icon: user"></span>
+      <input class="uk-input uk-form-width-medium uk-form-small" id="bike" type="text" name="number" placeholder="Nueva Bici">
+    </div>
+    <br><br>
+  Lastname:
+    <div class="uk-inline">
+      <span class="uk-form-icon" uk-icon="icon: users"></span>
+      <input class="uk-input uk-form-width-medium uk-form-small" id="position" type="number" name="position" placeholder="12032.123.435, 123234342">
+    </div>
+    <br><br>
+    {{#if message }}
+      <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+    <br><br>
+
+    <button class="buttn">Create bike</button>
+    <div class="txt">
+    </div>
+  </form>
+</div>
