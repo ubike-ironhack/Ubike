@@ -1,4 +1,3 @@
-
 const express = require("express");
 const router = express.Router();
 const Bike = require("../models/Bike");
@@ -12,21 +11,21 @@ const helpers = require("../helpers/function");
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
 
-    res.redirect("/private")
+    res.redirect("/map/admin")
   }
 };
 
 function checkRoles(role) {
   return function(req, res, next) {
     if (req.isAuthenticated() && req.user.role === role) {
-      return next();
+      next();
     } else {
-      res.redirect("/private");
+      res.redirect("/admin");
     }
   };
 }
 
-router.get("/private", isAuth, (req, res) => {
+router.get("/admin", isAuth, (req, res) => {
   let { user } = req;
   Bike.find()
   .populate("owner")
@@ -36,9 +35,17 @@ router.get("/private", isAuth, (req, res) => {
       ? { ...bike._doc, canUpdate: true }
       : property;
     });
-    res.render("private", { user, bikes });
+    res.render("admin", { user, bikes });
   });
 });
+
+router.get("/private", checkRoles("ADMIN"), (req, res) => {
+  let { user } = req;
+  Bike.find().then(bikes => {
+    res.render("private", { bikes, user });
+  });
+});
+
 
 router.get("/", helpers.isAuth, (req, res) => {
   console.log()

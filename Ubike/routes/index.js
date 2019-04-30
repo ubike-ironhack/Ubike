@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const Bike = require("../models/Bike");
 
-const isAuth = (req, res, next) => {
+/*const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
@@ -17,7 +17,7 @@ function checkRoles(role) {
       res.redirect("/private");
     }
   };
-}
+}*/
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -38,7 +38,7 @@ router.get('/', (req, res, next) => {
     });
 });*/
 
-router.get("/private", isAuth, (req, res) => {
+/*router.get("/private", isAuth, (req, res) => {
     let { user } = req;
     Bike.find()
     .populate("owner")
@@ -58,7 +58,7 @@ router.get("/admin", checkRoles("ADMIN"), (req, res) => {
   Bike.find().then(bikes => {
     res.render("admin", { bikes, user });
   });
-});
+});*/
 
 
 module.exports = router;
