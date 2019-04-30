@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Property = require("../models/Bike");
 
- router.get("/map", (req, res) => {
+ router.get("/bike", (req, res) => {
   res.render("new");
 });
 
- router.post("/map", (req, res) => {
+ router.post("/bike", (req, res) => {
   let { user } = req;
   req.body.owner = user._id;
   Bike.create(req.body)

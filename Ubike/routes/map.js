@@ -5,15 +5,40 @@ const Bike = require("../models/Bike");
 const User = require("../models/User");
 const helpers = require("../helpers/function");
 
-
-// const express = require("express");
-// const router = express.Router();
-// const Bike = require("../models/Bike");
-
 //router.get("/map", (req, res, next) => {
 //  res.render("map/map", { "message": req.flash("error") });
 //});
 
+const isAuth = (req, res, next) => {
+  if (req.isAuthenticated()) {
+
+    res.redirect("/private")
+  }
+};
+
+function checkRoles(role) {
+  return function(req, res, next) {
+    if (req.isAuthenticated() && req.user.role === role) {
+      return next();
+    } else {
+      res.redirect("/private");
+    }
+  };
+}
+
+router.get("/private", isAuth, (req, res) => {
+  let { user } = req;
+  Bike.find()
+  .populate("owner")
+  .then(bikes =>{
+    bikes = bikes.map(bike =>{
+      return String(bike.owner._id) === String(user._id)
+      ? { ...bike._doc, canUpdate: true }
+      : property;
+    });
+    res.render("private", { user, bikes });
+  });
+});
 
 router.get("/", helpers.isAuth, (req, res) => {
   console.log()
