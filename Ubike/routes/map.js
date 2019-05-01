@@ -4,6 +4,48 @@ const Bike = require("../models/Bike");
 const User = require("../models/User");
 const helpers = require("../helpers/function");
 
+//router.get("/map", (req, res, next) => {
+//  res.render("map/map", { "message": req.flash("error") });
+//});
+
+const isAuth = (req, res, next) => {
+  if (req.isAuthenticated()) {
+
+    res.redirect("/map/admin")
+  }
+};
+
+function checkRoles(role) {
+  return function(req, res, next) {
+    if (req.isAuthenticated() && req.user.role === role) {
+      next();
+    } else {
+      res.redirect("/admin");
+    }
+  };
+}
+
+router.get("/admin", isAuth, (req, res) => {
+  let { user } = req;
+  Bike.find()
+  .populate("owner")
+  .then(bikes =>{
+    bikes = bikes.map(bike =>{
+      return String(bike.owner._id) === String(user._id)
+      ? { ...bike._doc, canUpdate: true }
+      : property;
+    });
+    res.render("admin", { user, bikes });
+  });
+});
+
+router.get("/private", checkRoles("ADMIN"), (req, res) => {
+  let { user } = req;
+  Bike.find().then(bikes => {
+    res.render("private", { bikes, user });
+  });
+});
+
 
 router.get("/", helpers.isAuth, (req, res) => {
   console.log()
@@ -23,8 +65,10 @@ router.get("/", helpers.isAuth, (req, res) => {
 // });
 
 // router.post("/new", (req, res) => {
-//   let { lng, lat, } = req.body;
+//   let { lng, lat, name, description } = req.body;
 //   let bicycle = {
+//     name,
+//     description,
 //     location: {
 //       type: "Point",
 //       coordinates: [lng, lat]
@@ -34,7 +78,6 @@ router.get("/", helpers.isAuth, (req, res) => {
 //     res.redirect("/map");
 //   });
 // });
-
 
 // router.get("/:id/edit", (req, res) => {
 //   let { id } = req.params;
@@ -47,6 +90,8 @@ router.get("/", helpers.isAuth, (req, res) => {
 //   let { id } = req.params;
 //   let { lng, lat, name, description } = req.body;
 //   let bicycle = {
+//     name,
+//     description,
 //     location: {
 //       type: "Point",
 //       coordinates: [lng, lat]
@@ -64,4 +109,4 @@ router.get("/", helpers.isAuth, (req, res) => {
 //   });
 // });
 
-module.exports = router;
+ module.exports = router;

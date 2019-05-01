@@ -7,8 +7,7 @@ const helpers = require("../helpers/function");
 
 router.get("/", helpers.isAuth, (req, res) => {
   console.log()
-  let auth =req.isAuthenticated()
-  const user = req.params
+  let auth =req.isAuthenticated( const user = req.params
   Bike.findById()
   console.log('esta sera la visa del map',auth);
   res.render('map/map',{auth:auth} ) 

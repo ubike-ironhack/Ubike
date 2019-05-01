@@ -1,0 +1,12 @@
+<h1>Welcome, administrator</h1>
+
+ <ul>
+  {{#each bikes as |bike|}}
+  <li>
+    {{bike._id}} creada por Ubike
+    <div>
+      <a href="map/private">Add a new bike</a>
+     </div>
+  </li>
+  {{/each}}
+</ul>
