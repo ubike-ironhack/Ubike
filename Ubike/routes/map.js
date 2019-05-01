@@ -11,7 +11,9 @@ const helpers = require("../helpers/function");
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
 
-    res.redirect("/map/admin")
+    return next();
+  }else{
+    req.redirect("/auth/login")
   }
 };
 
@@ -25,7 +27,7 @@ function checkRoles(role) {
   };
 }
 
-router.get("/admin", isAuth, (req, res) => {
+router.get("/admin", checkRoles("ADMIN"), isAuth, (req, res) => {
   let { user } = req;
   Bike.find()
   .populate("owner")
@@ -41,7 +43,8 @@ router.get("/admin", isAuth, (req, res) => {
 
 router.get("/private", checkRoles("ADMIN"), (req, res) => {
   let { user } = req;
-  Bike.find().then(bikes => {
+  Bike.find()
+  .then(bikes => {
     res.render("private", { bikes, user });
   });
 });
