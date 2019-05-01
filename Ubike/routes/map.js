@@ -33,7 +33,7 @@ router.get("/admin", isAuth, (req, res) => {
     bikes = bikes.map(bike =>{
       return String(bike.owner._id) === String(user._id)
       ? { ...bike._doc, canUpdate: true }
-      : property;
+      : bike;
     });
     res.render("admin", { user, bikes });
   });
