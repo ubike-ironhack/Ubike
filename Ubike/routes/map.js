@@ -10,8 +10,9 @@ const helpers = require("../helpers/function");
 
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
-
-    res.redirect("/map/admin")
+    return next();
+  }else{
+    req.redirect("auth/login")
   }
 };
 
@@ -25,35 +26,46 @@ function checkRoles(role) {
   };
 }
 
-router.get("/admin", isAuth, (req, res) => {
+router.get("/admin", checkRoles("ADMIN"), isAuth, (req, res) => {
   let { user } = req;
   Bike.find()
-  .populate("owner")
+  .populate("user")
   .then(bikes =>{
-    bikes = bikes.map(bike =>{
-      return String(bike.owner._id) === String(user._id)
-      // ? { ...bike._doc, canUpdate: true }
-      // : bike;
-    });
+    // bikes = bikes.map(bike =>{
+    //   return String(bike.user._id) === String(user._id)
+    //   ? { ...bike._doc, canUpdate: true }
+    //   : bike;
+    // });
     res.render("admin", { user, bikes });
   });
 });
 
 router.get("/private", checkRoles("ADMIN"), (req, res) => {
   let { user } = req;
-  Bike.find().then(bikes => {
-    res.render("private", { bikes, user });
-  });
+    res.render("private", { user });
 });
 
+router.post("/private", checkRoles("ADMIN"), (req, res) => {
+  let {lat, lng, number} = req.body;
+  let position = {coordinates: [lat, lng]}
+  bike = {position, number}
+  Bike.create(bike).then((b) => {
+    console.log(b)
+    res.redirect("/map")
+  })
+  .catch(err => console.log(err) )
+});
 
 router.get("/", helpers.isAuth, (req, res) => {
-  console.log()
   let auth =req.isAuthenticated()
+ Bike.find().then( bikes => {
+   console.log('las bikes', bikes.map(obj => obj.toObject()))
+  res.render("map/map", {auth, bikes})
   const user = req.params
-  User.findById()
+ })
+  /*User.findById()
   console.log('esta sera la visa del map',auth);
-  res.render('map/map',{auth:auth} ) 
+  res.render('map/map',{auth:auth} ) */
 });
 
 // router.get("/login", (req, res) => {
