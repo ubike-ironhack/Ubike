@@ -46,7 +46,6 @@
                        <ul class="uk-nav uk-navbar-dropdown-nav">
                            <li class="uk-active"><a href="/map">Menu</a></li>
                            <li><a href="#">Perfil</a></li>
-                           <li><a href="#">Reportar problema</a></li>
                            <li><a href="/map/admin">Administrador</a></li>
                            <li><a href="/auth/logout">Logout</a></li>
                        </ul>
@@ -61,22 +60,22 @@
    </nav>
 </div>
 {{else}}
- <nav uk-navbar>
+ <nav class="black" uk-navbar>
    <div class="uk-navbar-center ">
        <div class="uk-navbar-center-left "><div>
            <ul class="uk-navbar-nav">
-               <li><a class="cols" href="/">Home</a></li>
+               <li class="small"><a class="cols" href="/">Home</a></li>
            </ul>
            <ul class="uk-navbar-nav">
-               <li><a class="cols" href="/auth/login">Login</a></li>
+               <li class="small"><a class="cols" href="/auth/login">Login</a></li>
 
            </ul>
        </div></div>
-       <a class="uk-navbar-item uk-logo" href="/">logo</a>
+       <a class="small uk-navbar-item uk-logo" href="/">logo</a>
        <div class="uk-navbar-center-right"><div>
            <ul class="uk-navbar-nav">
-               <li><a class="cols" href="/auth/signup">Signup</a></li>
-               <li><a class="cols" href="/auth/logout">Logout</a></li>
+               <li class="small"><a class="cols" href="/auth/signup">Signup</a></li>
+               <li class="small"><a class="cols" href="/auth/logout">Logout</a></li>
            </ul>
        </div></div>
 
