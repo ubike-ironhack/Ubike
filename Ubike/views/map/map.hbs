@@ -1,5 +1,8 @@
 {{#each bikes as |bike|}}
+<ul>
 {{bike.position.coordinates}}
+</ul>
+
 {{/each}}
 
 
@@ -24,7 +27,7 @@
     .then(res => {
       console.log(res)
         const bikes = res.data.bike;
-        console.log(bikes)
+        console.log("estas son las bikes", bikes[0])
         {{!-- console.log(bikes.position.coordinates.reverse()) --}}
 
 
@@ -40,7 +43,7 @@
           map.on('load', function () {
           // Add a layer showing the places.
              map.addLayer({
-            "id": "places",
+            "id": bike._id,
             "type": "symbol",
             "source": {
                 "type": "geojson",
