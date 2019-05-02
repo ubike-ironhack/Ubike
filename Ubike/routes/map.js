@@ -4,10 +4,6 @@ const Bike = require("../models/Bike");
 const User = require("../models/User");
 const helpers = require("../helpers/function");
 
-//router.get("/map", (req, res, next) => {
-//  res.render("map/map", { "message": req.flash("error") });
-//});
-
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
@@ -31,13 +27,16 @@ router.get("/admin", checkRoles("ADMIN"), isAuth, (req, res) => {
   Bike.find()
   .populate("user")
   .then(bikes =>{
-    // bikes = bikes.map(bike =>{
-    //   return String(bike.user._id) === String(user._id)
-    //   ? { ...bike._doc, canUpdate: true }
-    //   : bike;
-    // });
     res.render("admin", { user, bikes });
   });
+});
+
+router.get("/json", (req, res) => {
+  Bike.find()
+    .limit(20)
+    .then(bike => {
+      res.status(200).json({ bike });
+    });
 });
 
 router.get("/private", checkRoles("ADMIN"), (req, res) => {
@@ -59,7 +58,7 @@ router.post("/private", checkRoles("ADMIN"), (req, res) => {
 router.get("/", helpers.isAuth, (req, res) => {
   let auth =req.isAuthenticated()
  Bike.find().then( bikes => {
-   console.log('las bikes', bikes.map(obj => obj.toObject()))
+   //console.log('las bikes', bikes.map(obj => obj.position.coordinates))
   res.render("map/map", {auth, bikes})
   const user = req.params
  })
