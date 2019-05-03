@@ -31,6 +31,14 @@ router.get("/admin", checkRoles("ADMIN"), helpers.isAuth, (req, res) => {
     res.render("admin", { user, bikes, auth:auth });
   });
 });
+
+router.get("/user/json", (req, res) => {
+  User.find()
+    .limit(20)
+    .then(user => {
+      res.status(200).json({ user });
+    });
+});
   
 
 router.get("/json", (req, res) => {
