@@ -15,8 +15,21 @@ a {
 
 .cols{
   color: white !important;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  font-size: 20px !important;
+  font-family: 'Permanent Marker', cursive !important;
+  font-size: 18px !important;
+  margin-left: 18px;
+  margin-right: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.small{
+ height: 40px;;
+}
+
+.black{
+  background-color: black;
+  height: 52px;
 }
 
 .part1{
@@ -28,6 +41,45 @@ a {
   background-position: center;
 }
 
+.bici{
+  width: 450px;
+  height: 698px;
+}
+
+.bolitas{
+  margin-left: 160px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: unset;
+}
+
+.sub3{
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  background-color: black;
+}
+
+.part4{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+}
+
+.lista2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: unset;
+}
+
 .part2{
   display: flex;
   align-items: center;
@@ -36,7 +88,8 @@ a {
 }
 
 .adjust{
-  margin-right: 20px;
+  margin-right: 40px;
+  margin-bottom: 80px;
 }
 
 .part3{
@@ -48,7 +101,7 @@ a {
   align-items: center;
   flex-direction: row-reverse;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 
 .phone{
@@ -60,52 +113,75 @@ a {
 .title{
   color: white;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
-  font-size: 100px;
+  font-size: 150px;
   margin-left: 25px;
-  padding-top: 50px;
+  padding-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .title3{
-  margin-left: 50px;
+  margin-left: 35px;
   
 }
 
 .subtitle{
-  font-family: 'Abel', sans-serif;
+  font-family: 'Permanent Marker', cursive;
   color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  font-size: 25px;
+  background-color: black;
+  //text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 65px;
   margin-left: 25px;
-  margin-top: 65px;
+  margin-right: 25px;
+  margin-top: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stores{
+  margin-left: 40px;
+  width: 150px;
+  height: 55px;
 }
 
 .subtitle2{
   font-family: 'Abel', sans-serif;
   color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  //text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 28px;
   margin-top: 45px;
 }
 
 .sub1{
+  background-color: black;
   margin-bottom: 45px;
-  font-family: 'Oxygen', sans-serif;
-  color: #8B9599;
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .sub2{
   margin-bottom: 45px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  color: #8B9599;
-  font-family: 'Oxygen', sans-serif;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: white;
+  background-color: black;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .word{
   font-size: 18px;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Oxygen', sans-serif;
 }
 
 .title2{
@@ -142,4 +218,13 @@ a {
 
 .txt{
   font-size: 18px;
+}
+
+.navbar2{
+  background-color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.letra{
+  color: white;
 }

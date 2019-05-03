@@ -22,14 +22,16 @@ function checkRoles(role) {
   };
 }
 
-router.get("/admin", checkRoles("ADMIN"), isAuth, (req, res) => {
+router.get("/admin", checkRoles("ADMIN"), helpers.isAuth, (req, res) => {
+  let auth =req.isAuthenticated()
   let { user } = req;
   Bike.find()
   .populate("user")
   .then(bikes =>{
-    res.render("admin", { user, bikes });
+    res.render("admin", { user, bikes, auth:auth });
   });
 });
+  
 
 router.get("/json", (req, res) => {
   Bike.find()
@@ -39,9 +41,14 @@ router.get("/json", (req, res) => {
     });
 });
 
-router.get("/private", checkRoles("ADMIN"), (req, res) => {
+
+router.get("/private", checkRoles("ADMIN"), helpers.isAuth, (req, res) => {
+  let auth =req.isAuthenticated()
   let { user } = req;
-    res.render("private", { user });
+  Bike.find()
+    .then(bikes => {
+      res.render("private", { bikes, user, auth:auth });
+  });
 });
 
 router.post("/private", checkRoles("ADMIN"), (req, res) => {
