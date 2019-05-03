@@ -70,7 +70,7 @@ router.get("/", helpers.isAuth, (req, res) => {
   const user = req.params
  })
   /*User.findById()
-
+kjdbhiuwebf9ufwe
   
   console.log('esta sera la visa del map',auth);
   res.render('map/map',{auth:auth} ) */
