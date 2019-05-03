@@ -17,7 +17,8 @@ a {
   color: white !important;
   font-family: 'Permanent Marker', cursive !important;
   font-size: 18px !important;
-  margin-left: 5px;
+  margin-left: 18px;
+  margin-right: 18px;
   display: flex;
   justify-content: center;
 }
@@ -217,4 +218,13 @@ a {
 
 .txt{
   font-size: 18px;
+}
+
+.navbar2{
+  background-color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.letra{
+  color: white;
 }
