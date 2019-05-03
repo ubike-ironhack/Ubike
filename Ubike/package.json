@@ -7,6 +7,8 @@
     "dev": "DEBUG=ubike:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
+  "engines": {"node": "10.15.3", "npm": "6.4.1"}
+  ,
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^3.0.0",
