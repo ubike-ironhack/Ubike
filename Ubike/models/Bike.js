@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 const bikeSchema = new Schema ({
-    position: {
+  number: Number,
+  position: {
       type: {
         type: String,
         default: "Point"
@@ -11,6 +13,8 @@ const bikeSchema = new Schema ({
   },
   { timestamps: true }
 );
+
+bikeSchema.set('toObject')
 
 bikeSchema.index({ location: "2dsphere" });
 
