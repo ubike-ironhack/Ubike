@@ -24,10 +24,19 @@ const userSchema = new Schema({
     },
     image: {
       type: String
+    },
+    position: {
+      type: {
+        type: String,
+        default: "Point"
+      },
+      coordinates:[Number]
     }
   }, 
   { timestamps: true }
 );
+
+userSchema.index({ location: "2dsphere" });
 
 userSchema.plugin(passportLocalMongoose, {
   usernameField: "email",
@@ -35,4 +44,7 @@ userSchema.plugin(passportLocalMongoose, {
 });
 
 const User = mongoose.model('User', userSchema);
+
 module.exports = User;
+
+
