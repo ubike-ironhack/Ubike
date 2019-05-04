@@ -1,25 +1,28 @@
-<h1>Please fill the blanks to add a new bicycle</h1>
+<div class="all">
+<h1 class="title2">Please fill the blanks to add a new bicycle</h1>
 
-<form action="/map/private" method="POST"><!--{{#if _id}} action="/map" {{else}} action="/map/private" {{/if}}--> 
-  <div>
+<form {{#if _id}} action="/private/{{_id}}/edit" {{else}} action="/map" {{/if}} method="POST">
+  <div class="espacio">
+  <div class="account-message3">
     <label for="">
       Number:
       <input type="text" name="number" value="{{number}}" />
     </label>
   </div>
-  <div>
+  <div class="account-message3">
     <label for="">
       Longitude:
       <input id="lng" type="text" name="lng" value="{{location.coordinates.[0]}}" />
     </label>
   </div>
-  <div>
+  <div class="account-message3">
     <label for="">
       Latitude:
       <input id="lat" type="text" name="lat" value="{{location.coordinates.[1]}}" />
     </label>
   </div>
-  <button type="submit">Create Bicycle</button>
+  </div>
+  <button class="buttn2" type="submit">Create Bicycle</button>
   <div id="search"></div>
   <div id="map" style="width: 1300px; height: 400px"></div>
 </form>
@@ -47,3 +50,12 @@
   });
   document.getElementById("search").appendChild(geocoder.onAdd(map));
 </script>
+<<<<<<< HEAD:views/private.hbs
+=======
+<div class="all2"></div>
+</div>
+
+
+
+
+>>>>>>> 9c4f6384c7a69271d07c1a7f322b36c6a724749f:Ubike/views/private.hbs
