@@ -29,7 +29,7 @@
     trackUserLocation: true
 }));
 
- axios.get("http://localhost:3000/map/json")
+ axios.get(`${req.headers.origin}/map/json`)
 
     .then(res => {  
       var bikes = res.data.bike
