@@ -61,9 +61,7 @@ router.post("/signup", (req, res, next) => {
           email: newUserone.email,
           subject: "UBike - Email verification",
           user: newUserone.name,
-          confirmationUrl: `http://localhost:${
-            process.env.PORT
-          }/auth/confirm/${randomToken}`
+          confirmationUrl: `${req.headers.origin}/auth/confirm/${randomToken}`
         };
         options.filename = "confirmation";
 
