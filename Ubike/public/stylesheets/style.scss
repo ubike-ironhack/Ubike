@@ -24,31 +24,36 @@ a {
 }
 
 .small{
- height: 40px;;
+ height: 35px;
+ font-family: 'Permanent Marker', cursive;
+ font-size: 40px;
+ color: #4D4D4D;
 }
 
 .black{
   background-color: black;
-  height: 52px;
+  height: 80px;
 }
 
 .part1{
-  background-image: url("/images/rsz_ubike.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  //background-image: url("/images/rsz_ubike.jpg");
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  background-color: black;
   width: 100%;
   height: 90vh;
-  background-position: center;
+  //background-position: center;
 }
 
 .bici{
   width: 450px;
   height: 698px;
+  margin-left: 60px;
 }
 
 .bolitas{
-  margin-left: 160px;
-  margin-top: 40px;
+  //margin-left: 160px;
+  //margin-top: 40px;
   display: flex;
   justify-content: center;
   flex-direction: unset;
@@ -58,12 +63,16 @@ a {
   font-family: 'Permanent Marker', cursive;
   color: white;
   background-color: black;
+  padding-top: 80px;
+  padding-left: 130px;
+  margin-bottom: 150px;
 }
 
 .part4{
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 35vh;
+  background-color: black;
 }
 
 .list{
@@ -78,6 +87,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: unset;
+  margin-left: 130px;
 }
 
 .part2{
@@ -104,6 +114,13 @@ a {
   height: 90vh;
 }
 
+.part5{
+  background-color: #4D4D4D;
+  width: 100%;
+  height: 50vh;
+  margin-top: 453px;
+}
+
 .phone{
   width: 429px;
   height: 510px;
@@ -114,8 +131,6 @@ a {
   color: white;
   text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
   font-size: 150px;
-  margin-left: 25px;
-  padding-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -227,4 +242,80 @@ a {
 
 .letra{
   color: white;
+}
+
+.card{
+  background-color: white;;
+  color: black;
+  margin-bottom: 100px;
+  margin-left: 130px;
+}
+
+.border{
+  border: 2px solid black;
+}
+
+.mejor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  color: black;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.adjust2{
+  height: 10vh;
+}
+
+.images{
+  margin-left: 200px;
+  margin-top: 30px;
+}
+
+.images2{
+  margin-left: 180px;
+  margin-top: 5px;
+}
+
+.images3{
+  margin-left: 160px;
+  margin-top: 5px;
+}
+
+.logof{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 60px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 30px;
+}
+
+.space{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.end{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  color: white
 }

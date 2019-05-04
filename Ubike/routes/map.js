@@ -8,6 +8,17 @@ const helpers = require("../helpers/function");
 //  res.render("map/map", { "message": req.flash("error") });
 //});
 
+// router.get("/:id/perfil", checkRoles("ADMIN"), helpers.isAuth, (req, res) => {
+//   let auth =req.isAuthenticated()
+//   const { id } = req.params
+//   User.findById(id)
+//   then(user => {
+//     res.render("perfil", { user, auth:auth });
+//   })
+// });
+
+
+
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
 
@@ -56,11 +67,9 @@ router.post("/private", (req, res, next) =>{
 
 
 router.get("/", helpers.isAuth, (req, res) => {
-  console.log()
   let auth =req.isAuthenticated()
   const user = req.params
-  User.findById()
-  console.log('esta sera la visa del map',auth);
+  User.findById();
   res.render('map/map',{auth:auth} ) 
 });
 

@@ -45,14 +45,16 @@
                    <div class="navbar2 uk-navbar-dropdown">
                        <ul class="uk-nav uk-navbar-dropdown-nav">
                            <li class="letra"><a href="/map">Menu</a></li>
-                           <li class="letra"><a href="#">Perfil</a></li>
-                           <li class="letra"><a href="/map/admin">Administrador</a></li>
+                           <li class="letra"><a href="/user/perfil">Profile</a></li>
+                           {{#if auth}}
+                           <li class="letra"><a href="/map/admin">Administrator</a></li>
+                           {{/if}}
                            <li class="letra"><a href="/auth/logout">Logout</a></li>
                        </ul>
                    </div>
                </li>
            </ul>
-       <a class="uk-navbar-item uk-logo" href="/map">Logo</a>
+       <a class="small uk-navbar-item uk-logo" href="/map">Ubike</a>
        <div class="uk-navbar-center"><div>
        </div>
        </div>
@@ -71,7 +73,7 @@
 
            </ul>
        </div></div>
-       <a class="small uk-navbar-item uk-logo" href="/">logo</a>
+       <a class="small uk-navbar-item uk-logo" href="/">Ubike</a>
        <div class="uk-navbar-center-right"><div>
            <ul class="uk-navbar-nav">
                <li class="small"><a class="cols" href="/auth/signup">Signup</a></li>
