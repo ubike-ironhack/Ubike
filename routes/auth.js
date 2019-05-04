@@ -61,7 +61,7 @@ router.post("/signup", (req, res, next) => {
           email: newUserone.email,
           subject: "UBike - Email verification",
           user: newUserone.name,
-          confirmationUrl: `${req.headers.origin}/auth/confirm/${randomToken}`
+          confirmationUrl: `https://ubike-ironhack.herokuapp.com/auth/confirm/${randomToken}`
         };
         options.filename = "confirmation";
 
