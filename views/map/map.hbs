@@ -29,10 +29,9 @@
     trackUserLocation: true
 }));
 
- axios.get(origin"/map/json", req => {
+ axios.get(`/map/json`, req => {
    var origin = `${req.headers.origin}`;
-   })
-   {{!-- console.log("esto es origin", origin) --}}
+   })   
     .then(res => {  
       var bikes = res.data.bike
       //var start = bikes.position.coordinates.reverse();
