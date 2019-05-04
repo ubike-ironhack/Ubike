@@ -22,6 +22,14 @@ const userSchema = new Schema({
       type: String,
       required: true
     },
+    confirmationCode: {
+      type: String,
+      unique: true
+    },
+    active: {
+      type: Boolean,
+      default: false
+    },
     image: {
       type: String
     },
@@ -40,7 +48,12 @@ userSchema.index({ location: "2dsphere" });
 
 userSchema.plugin(passportLocalMongoose, {
   usernameField: "email",
-  passwordField: "password"
+  passwordField: "password",
+  findByUsername: function(model, queryParameters) {
+    // Add additional query parameter - AND condition - active: true
+    queryParameters.active = true;
+    return model.findOne(queryParameters);
+  }
 });
 
 const User = mongoose.model('User', userSchema);
