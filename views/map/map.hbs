@@ -30,7 +30,9 @@
 }));
 
  axios.get(origin, req => {
-   var origin = `${req.headers.origin}/map/json`;}) 
+   var origin = `${req.headers.origin}/map/json`;
+   })
+   console.log("esto es origin", origin)
     .then(res => {  
       var bikes = res.data.bike
       //var start = bikes.position.coordinates.reverse();
