@@ -29,7 +29,9 @@
     trackUserLocation: true
 }));
 
- axios.get(`${req.headers.origin}/map/json`)
+ axios.get(origin, (req, res) => {
+   var origin = `${req.headers.origin}/map/json`; 
+ 
 
     .then(res => {  
       var bikes = res.data.bike
@@ -46,7 +48,7 @@
             .setLngLat(bike.position.coordinates.reverse())
             .setPopup(popup)
             .addTo(map)                       
-    })  
+    });  
   }); 
-
+});
 </script> 
